@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="João Meirinho">
+  <meta name="keywords" content="arquitetura de software, microsserviços, monolito, padrões de projeto, software">
+  <title>Arquitetura de Software</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Arquitetura de Software</h1>
+    <p>Do monólito aos microsserviços: fundamentos, padrões e tendências</p>
+  </header>
+
+  <nav>
+    <a href="#definicoes">Definições</a>
+    <a href="#tipos">Tipos de Arquitetura</a>
+    <a href="#padroes">Padrões e Protocolos</a>
+    <a href="#decisao">Tomada de Decisão</a>
+    <a href="#tendencias">Tendências</a>
+  </nav>
+
+  <main>
+
+    <section id="definicoes">
+      <h2>1. Definições formais de Arquitetura de Software</h2>
+      <p>
+        A Arquitetura de Software é o alicerce estratégico do desenvolvimento de sistemas,
+        representando a ligação entre as necessidades de negócio e a viabilidade técnica.
+        A norma ISO/IEC/IEEE 42010:2011 a define como a organização fundamental de um
+        sistema, incorporada em seus componentes, relacionamentos e princípios de design.
+      </p>
+
+      <figure>
+        <img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800" alt="Estrutura de blocos representando componentes de software">
+        <figcaption>Componentes e relacionamentos formam a base de qualquer arquitetura.</figcaption>
+      </figure>
+
+      <h3>Decomposição</h3>
+      <p>
+        A decomposição gerencia a complexidade cognitiva, transformando problemas grandes
+        em módulos menores. Existem dois paradigmas principais:
+      </p>
+      <ul>
+        <li><strong>Decomposição Funcional:</strong> baseada em processos e verbos, com refinamento sucessivo de funções.</li>
+        <li><strong>Decomposição Orientada a Objetos:</strong> baseada em entidades e substantivos, focando no domínio do problema.</li>
+      </ul>
+
+      <div class="destaque">
+        <p>
+          Segundo Parnas (1972), um bom módulo é aquele que <strong>oculta</strong> decisões
+          de design, permitindo substituição sem afetar o sistema global.
+        </p>
+      </div>
+
+      <h3>Pilares da Programação Orientada a Objetos</h3>
+      <ul>
+        <li><strong>Abstração:</strong> extrai aspectos essenciais, reduzindo a carga cognitiva.</li>
+        <li><strong>Encapsulamento:</strong> restringe o acesso direto aos dados.</li>
+        <li><strong>Herança:</strong> promove reuso, respeitando o Princípio de Liskov.</li>
+        <li><strong>Polimorfismo:</strong> permite que objetos diferentes respondam à mesma interface.</li>
+      </ul>
+    </section>
+
+    <section id="tipos">
+      <h2>2. Tipos de Arquitetura de Software</h2>
+
+      <h3>Monolito Tradicional</h3>
+      <p>
+        Um único executável e base de código unificada. É simples de gerenciar, mas
+        o escalonamento (via WebGarden ou WebFarm) exige replicar o bloco inteiro,
+        gerando ineficiência de recursos.
+      </p>
+
+      <h3>Monolito Modular</h3>
+      <p>
+        Um "caminho do meio", organizado com base em Domain-Driven Design e Bounded
+        Contexts. Prepara o sistema para uma futura migração através do Strangler
+        Application Pattern (Transform, Coexist e Remove).
+      </p>
+
+      <h3>Microsserviços</h3>
+      <p>
+        Aplicação distribuída com implantação independente, escalabilidade seletiva
+        e heterogeneidade tecnológica. Exige padrões como API Gateway, BFF e
+        Saga Pattern para lidar com a consistência eventual (BASE).
+      </p>
+
+      <figure>
+        <img src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800" alt="Rede de conexões representando microsserviços distribuídos">
+        <figcaption>Microsserviços dependem de comunicação distribuída e governança.</figcaption>
+      </figure>
+    </section>
+
+    <section id="padroes">
+      <h2>3. Padrões de Projeto e Protocolos de Comunicação</h2>
+
+      <h3>Domain-Driven Design (DDD) e Bounded Context</h3>
+      <p>
+        Ferramenta estratégica de Eric Evans para garantir alta coesão e baixo
+        acoplamento, modelando o sistema em torno de capacidades de negócio.
+      </p>
+
+      <h3>Backend for Frontend (BFF)</h3>
+      <p>
+        Otimiza a comunicação entre backend e diferentes clientes (web e mobile),
+        consolidando chamadas de múltiplos microsserviços em uma resposta única.
+      </p>
+
+      <h3>Service Discovery e API Gateway</h3>
+      <p>
+        O Service Discovery localiza instâncias efêmeras de serviços. O API Gateway
+        centraliza autenticação, roteamento, segurança e balanceamento de carga.
+      </p>
+
+      <hr>
+
+      <h3>Protocolos de Comunicação</h3>
+      <ul>
+        <li><strong>REST:</strong> simples e amplamente adotado, mas sofre com over-fetching.</li>
+        <li><strong>GraphQL:</strong> permite ao cliente pedir exatamente os dados que precisa.</li>
+        <li><strong>gRPC:</strong> alta performance com HTTP/2 e serialização binária.</li>
+      </ul>
+    </section>
+
+    <section id="decisao">
+      <h2>4. Escolha da Arquitetura e Tomada de Decisão</h2>
+      <p>
+        Não existe uma arquitetura universalmente "melhor". Segundo Richards e Ford,
+        <em>"tudo em arquitetura de software é um trade-off"</em>: cada ganho em um
+        atributo (como resiliência) tem um custo associado (como complexidade de rede).
+      </p>
+      <div class="destaque">
+        <p>
+          O <strong>Quantum Arquitetural</strong> é a menor unidade de arquitetura com
+          alta coesão funcional, delimitando a integridade transacional do sistema.
+        </p>
+      </div>
+    </section>
+
+    <section id="tendencias">
+      <h2>5. Tendências Tecnológicas</h2>
+
+      <h3>Governança Arquitetural</h3>
+      <p>
+        Architectural Fitness Functions são testes automatizados que verificam a
+        conformidade do sistema com seus objetivos arquiteturais, como o isolamento
+        entre camadas.
+      </p>
+
+      <h3>Micro Frontends</h3>
+      <p>
+        Estende os benefícios dos microsserviços para a interface do usuário,
+        decompondo a tela em módulos autônomos geridos por squads verticais.
+      </p>
+
+      <h3>Serverless e FaaS</h3>
+      <p>
+        Funções stateless acionadas por eventos, sem gerenciamento de infraestrutura,
+        cobrando apenas pelo tempo de execução.
+      </p>
+
+      <h3>Gêmeos Digitais (Digital Twins)</h3>
+      <p>
+        Modelos dinâmicos alimentados por dados em tempo real, usando protocolos como
+        MQTT e OPC UA para integrar o mundo físico e o virtual.
+      </p>
+
+      <h3>Inteligência Artificial como Microsserviços</h3>
+      <p>
+        O paradigma AI as a Microservice (AIMS) permite consumir capacidades
+        preditivas de forma modular, mesmo com restrições de recursos na borda (edge).
+      </p>
+
+      <figure>
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" alt="Circuitos representando inteligência artificial e computação de borda">
+        <figcaption>IA na borda exige eficiência de recursos e baixa latência.</figcaption>
+      </figure>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Trabalho de Arquitetura de Software &mdash; Programação Web</p>
+    <p>João Roberto Meirinho Nunes &middot; Fatec Sorocaba José Crespo Gonzales &middot; 2026</p>
+    <p><a href="#definicoes">Voltar ao topo</a></p>
+  </footer>
+
+</body>
+</html>
